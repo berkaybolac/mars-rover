@@ -24,3 +24,4 @@ Expected Output:
 5 1 E
 
 ![Test Image 1](https://github.com/berkaybolac/mars-rover/blob/master/Result.png)
+![Test Image 2](https://github.com/berkaybolac/mars-rover/blob/master/Test.png)
