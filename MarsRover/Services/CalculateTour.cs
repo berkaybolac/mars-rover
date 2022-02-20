@@ -8,14 +8,13 @@ namespace MarsRover.Services
 {
     public static class CalculateTour
     {
-        public static void TourCalculator(List<int> maxCoordinate, string[] startPositions, string movingCommands)
+        public static Rover TourCalculator(List<int> maxCoordinate, string[] startPositions, string movingCommands)
         {
             var rover = new Rover();
             rover.CoordinateX = Convert.ToInt32(startPositions[0]);
             rover.CoordinateY = Convert.ToInt32(startPositions[1]);
             rover.Direction = startPositions[2];
             CoordinatesChecker.CheckCoordinates(rover.CoordinateX, rover.CoordinateY, maxCoordinate);
-
             foreach (var commands in movingCommands)
             {
                 switch (commands.ToString())
@@ -33,9 +32,9 @@ namespace MarsRover.Services
                         break;
                 }
             }
-
             Console.WriteLine(
                 $"CoordinateX : {rover.CoordinateX}, CoordinateY : {rover.CoordinateY}, Direction: {rover.Direction}");
+            return rover;
         }
     }
 }
