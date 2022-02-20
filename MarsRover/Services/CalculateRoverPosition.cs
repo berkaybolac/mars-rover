@@ -1,50 +1,46 @@
-using System;
-using System.Collections.Generic;
+using MarsRover.Constants;
+using MarsRover.Entities;
 
-namespace MarsRover
+namespace MarsRover.Services
 {
     public static class CalculateRoverPosition
     {
         public static void CalculateDirection(Rover rover, string rotation)
         {
-            if (rotation == "L")
+            if (rotation == RotationConstant.Left)
             {
                 switch (rover.Direction)
                 {
-                    case "N":
-                        rover.Direction = "W";
+                    case DirectionConstant.North:
+                        rover.Direction = DirectionConstant.West;
                         break;
-                    case "S":
-                        rover.Direction = "E";
+                    case DirectionConstant.South:
+                        rover.Direction = DirectionConstant.East;
                         break;
-                    case "E":
-                        rover.Direction = "N";
+                    case DirectionConstant.East:
+                        rover.Direction = DirectionConstant.North;
                         break;
-                    case "W":
-                        rover.Direction = "S";
-                        break;
-                    default:
+                    case DirectionConstant.West:
+                        rover.Direction = DirectionConstant.South;
                         break;
                 }
             }
 
-            if (rotation == "R")
+            if (rotation == RotationConstant.Right)
             {
                 switch (rover.Direction)
                 {
-                    case "N":
-                        rover.Direction = "E";
+                    case DirectionConstant.North:
+                        rover.Direction = DirectionConstant.East;
                         break;
-                    case "S":
-                        rover.Direction = "W";
+                    case DirectionConstant.South:
+                        rover.Direction = DirectionConstant.West;
                         break;
-                    case "E":
-                        rover.Direction = "S";
+                    case DirectionConstant.East:
+                        rover.Direction = DirectionConstant.South;
                         break;
-                    case "W":
-                        rover.Direction = "N";
-                        break;
-                    default:
+                    case DirectionConstant.West:
+                        rover.Direction = DirectionConstant.North;
                         break;
                 }
             }
@@ -54,10 +50,10 @@ namespace MarsRover
         {
             switch (rover.Direction)
             {
-                case "E":
+                case DirectionConstant.East:
                     rover.CoordinateX += 1;
                     break;
-                case "W":
+                case DirectionConstant.West:
                     rover.CoordinateX -= 1;
                     break;
             }
@@ -67,10 +63,10 @@ namespace MarsRover
         {
             switch (rover.Direction)
             {
-                case "N":
+                case DirectionConstant.North:
                     rover.CoordinateY += 1;
                     break;
-                case "S":
+                case DirectionConstant.South:
                     rover.CoordinateY -= 1;
                     break;
             }

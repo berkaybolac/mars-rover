@@ -1,4 +1,4 @@
-namespace MarsRover
+namespace MarsRover.Entities
 {
     public class Rover
     {

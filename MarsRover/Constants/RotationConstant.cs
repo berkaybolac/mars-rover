@@ -1,7 +1,9 @@
 namespace MarsRover.Constants
 {
-    public class RotationConstant
+    public static class RotationConstant
     {
-        
+        public const string Right = "R";
+        public const string Left = "L";
+        public const string Moving = "M";
     }
 }

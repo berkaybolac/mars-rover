@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using MarsRover.Constants;
+using MarsRover.Entities;
+using MarsRover.Helpers;
 
-namespace MarsRover
+namespace MarsRover.Services
 {
     public static class CalculateTour
     {
@@ -12,24 +15,27 @@ namespace MarsRover
             rover.CoordinateY = Convert.ToInt32(startPositions[1]);
             rover.Direction = startPositions[2];
             CoordinatesChecker.CheckCoordinates(rover.CoordinateX, rover.CoordinateY, maxCoordinate);
+
             foreach (var commands in movingCommands)
             {
-                switch (commands)
+                switch (commands.ToString())
                 {
-                    case 'M':
+                    case RotationConstant.Moving:
                         CalculateRoverPosition.CalculateCoordinateX(rover);
                         CalculateRoverPosition.CalculateCoordinateY(rover);
                         CoordinatesChecker.CheckCoordinates(rover.CoordinateX, rover.CoordinateY, maxCoordinate);
                         break;
-                    case 'L':
+                    case RotationConstant.Left:
                         CalculateRoverPosition.CalculateDirection(rover, commands.ToString());
                         break;
-                    case 'R':
+                    case RotationConstant.Right:
                         CalculateRoverPosition.CalculateDirection(rover, commands.ToString());
                         break;
                 }
             }
-            Console.WriteLine($"CoordinateX : {rover.CoordinateX}, CoordinateY : {rover.CoordinateY}, Direction: {rover.Direction}");
+
+            Console.WriteLine(
+                $"CoordinateX : {rover.CoordinateX}, CoordinateY : {rover.CoordinateY}, Direction: {rover.Direction}");
         }
     }
 }
